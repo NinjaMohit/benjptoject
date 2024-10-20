@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_application_1/screens/success_forgetpass.dart';
+import 'package:get/get.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:hexcolor/hexcolor.dart';
 
@@ -34,8 +34,10 @@ class _ForgetPassState extends State<ForgetPass> {
           gradient: LinearGradient(
             colors: [
               HexColor("005E9D"),
-              HexColor("3B96D2"),
-              HexColor("3AAFFD"),
+              // HexColor("3B96D2"),
+              HexColor("#00BFFF"),
+              //  HexColor("3AAFFD"),
+              HexColor("#00BFFF")
             ],
             begin: Alignment.topCenter,
             end: Alignment.bottomCenter,
@@ -46,10 +48,13 @@ class _ForgetPassState extends State<ForgetPass> {
           child: Column(
             children: [
               SizedBox(height: height * 10),
-              Image.asset(
-                "assets/images/logo.png",
-                height: height * 13,
-                width: width * 45,
+              Transform.scale(
+                scale: 1.2,
+                child: Image.asset(
+                  "assets/images/logo.png",
+                  height: height * 13,
+                  width: width * 45,
+                ),
               ),
               SizedBox(
                 height: height * 7,
@@ -87,7 +92,7 @@ class _ForgetPassState extends State<ForgetPass> {
                             SizedBox(height: height * 2),
                             Container(
                               alignment: Alignment.centerLeft,
-                              padding: const EdgeInsets.only(left: 5),
+                              padding: EdgeInsets.only(left: height * 1),
                               height: height * 7.5,
                               width: width * 80,
                               decoration: BoxDecoration(
@@ -104,10 +109,10 @@ class _ForgetPassState extends State<ForgetPass> {
                                 borderRadius: BorderRadius.circular(6),
                                 boxShadow: [
                                   BoxShadow(
-                                    color: HexColor("4c4c4c"),
+                                    color: HexColor("#12669d"),
                                     spreadRadius: 0,
                                     blurRadius: 2,
-                                    offset: const Offset(0, 4),
+                                    offset: const Offset(0, 5),
                                   ),
                                 ],
                               ),
@@ -135,69 +140,73 @@ class _ForgetPassState extends State<ForgetPass> {
                         ),
                       ),
                       actions: [
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) =>
-                                      const SuccessForgetpass()),
-                            );
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: height * 7,
-                            width: width * 29,
-                            decoration: BoxDecoration(
-                              color: HexColor("#FFCA11"),
-                              borderRadius: BorderRadius.circular(2),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: HexColor("4c4c4c"),
-                                  spreadRadius: 0,
-                                  blurRadius: 2,
-                                  offset: const Offset(0, 4),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                          children: [
+                            Flexible(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.toNamed('/successforgetpass');
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: height * 7,
+                                  width: width * 29,
+                                  decoration: BoxDecoration(
+                                    color: HexColor("#FFCA11"),
+                                    borderRadius: BorderRadius.circular(2),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: HexColor("4c4c4c"),
+                                        spreadRadius: 0,
+                                        blurRadius: 2,
+                                        offset: const Offset(0, 4),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Text(
+                                    'Submit',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 20,
+                                        color: HexColor("#FFFFFF"),
+                                        fontWeight: FontWeight.w500),
+                                  ),
                                 ),
-                              ],
+                              ),
                             ),
-                            child: Text(
-                              'Submit',
-                              style: GoogleFonts.inter(
-                                  fontSize: 20,
-                                  color: HexColor("#FFFFFF"),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
-                        ),
-                        SizedBox(width: width * 1),
-                        GestureDetector(
-                          onTap: () {
-                            Navigator.pop(context);
-                          },
-                          child: Container(
-                            alignment: Alignment.center,
-                            height: height * 7,
-                            width: width * 29,
-                            decoration: BoxDecoration(
-                              color: HexColor("#8F8F8F"),
-                              borderRadius: BorderRadius.circular(2),
-                              boxShadow: [
-                                BoxShadow(
-                                  color: HexColor("4c4c4c"),
-                                  spreadRadius: 0,
-                                  blurRadius: 2,
-                                  offset: const Offset(0, 4),
+                            SizedBox(width: width * 1),
+                            Flexible(
+                              child: GestureDetector(
+                                onTap: () {
+                                  Get.back();
+                                },
+                                child: Container(
+                                  alignment: Alignment.center,
+                                  height: height * 7,
+                                  width: width * 29,
+                                  decoration: BoxDecoration(
+                                    color: HexColor("#8F8F8F"),
+                                    borderRadius: BorderRadius.circular(2),
+                                    boxShadow: [
+                                      BoxShadow(
+                                        color: HexColor("4c4c4c"),
+                                        spreadRadius: 0,
+                                        blurRadius: 2,
+                                        offset: const Offset(0, 4),
+                                      ),
+                                    ],
+                                  ),
+                                  child: Text(
+                                    'Cancel',
+                                    style: GoogleFonts.inter(
+                                        fontSize: 20,
+                                        color: HexColor("#FFFFFF"),
+                                        fontWeight: FontWeight.w500),
+                                  ),
                                 ),
-                              ],
+                              ),
                             ),
-                            child: Text(
-                              'Cancel',
-                              style: GoogleFonts.inter(
-                                  fontSize: 20,
-                                  color: HexColor("#FFFFFF"),
-                                  fontWeight: FontWeight.w500),
-                            ),
-                          ),
+                          ],
                         ),
                       ],
                     ),
